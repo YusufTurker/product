@@ -1,13 +1,13 @@
 <?php
 
-namespace kouosl\sample\controllers\api;
+namespace kouosl\product\controllers\api;
 
-use kouosl\sample\models\Samples;
+use kouosl\product\models\Products;
 use Yii;
 
-class SamplesController extends DefaultController {
+class ProductsController extends DefaultController {
 	
-	public $modelClass = 'kouosl\sample\models\Samples';
+	public $modelClass = 'kouosl\product\models\Products';
 	
 	public function actions() {
 		$actions = parent::actions ();
@@ -17,7 +17,7 @@ class SamplesController extends DefaultController {
 	
 	public function actionView($id){
 
-		$model = Samples::findOne($id);
+		$model = Products::findOne($id);
 		
 		if(!$model)
 			return ['status' => '404','message' => 'Not Found'];
@@ -26,14 +26,14 @@ class SamplesController extends DefaultController {
 	}
 	
 	public function actionIndex(){
-		return Samples::find()->all();
+		return Products::find()->all();
 	}
 	
 	public function actionCreate(){
 
 		$postParams = yii::$app->request->post();
 		
-		$model = new Samples();
+		$model = new Products();
 	
 		
 		if($model->load($postParams,'') && $model->validate()){
@@ -51,7 +51,7 @@ class SamplesController extends DefaultController {
 
 		$postParams = yii::$app->request->post();
 		
-		$model = Samples::findOne($id);
+		$model = Products::findOne($id);
 
 		if($model = $this->LoadModel($model, $postParams)){
 				if($model->save())
@@ -64,7 +64,7 @@ class SamplesController extends DefaultController {
 	
 	public function actionDelete($id){
 		
-		if(Samples::findOne($id)->delete())
+		if(Products::findOne($id)->delete())
 			return ['status' => 1];
 		else
 			return ['stauts' => 100];

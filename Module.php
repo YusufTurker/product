@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample;
+namespace kouosl\product;
 use Yii;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
@@ -54,19 +54,19 @@ class Module extends \kouosl\base\Module
 
     public function registerTranslations()
     {
-        Yii::$app->i18n->translations['site/*'] = [
+        Yii::$app->i18n->translations['product/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@kouosl/sample/messages',
+            'basePath' => '@kouosl/product/messages',
             'fileMap' => [
-                'sample/sample' => 'sample.php',
+                'product/product' => 'product.php',
             ],
         ];
     }
 
     public static function t($category, $message, $params = [], $language = null)
     {
-        return Yii::t('sample/' . $category, $message, $params, $language);
+        return Yii::t('product/' . $category, $message, $params, $language);
     }
 
     public static function initRules(){
@@ -75,7 +75,7 @@ class Module extends \kouosl\base\Module
             [
                 'class' => 'yii\rest\UrlRule',
                 'controller' => [
-                    'sample/samples',
+                    'product/prouct',
                 ],
                 'tokens' => [
                     '{id}' => '<id:\\w+>'

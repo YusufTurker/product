@@ -1,15 +1,15 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\product\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * SampleSearch represents the model behind the search form about `app\modules\sample\models\Sample`.
+ * SampleSearch represents the model behind the search form about `app\modules\product\models\Product`.
  */
-class SamplesSearch extends Samples
+class ProductsSearch extends Products
 {
     /**
      * @inheritdoc
@@ -40,7 +40,7 @@ class SamplesSearch extends Samples
      */
     public function search($params)
     {
-        $query = Samples::find();
+        $query = Products::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
