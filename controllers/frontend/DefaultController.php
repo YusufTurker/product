@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample\controllers\frontend;
+namespace kouosl\product\controllers\frontend;
 
 
 class DefaultController extends \kouosl\base\controllers\backend\BaseController
@@ -9,4 +9,5 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
     {
         return $this->render('_index');
     }
+	
 }

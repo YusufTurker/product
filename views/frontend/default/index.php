@@ -1,7 +1,8 @@
 <?php
-/* @var $this yii\web\View */
-$this->title = 'WYP Sample Application';
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 ?>
+
 <div class="site-index">
 
     <div class="jumbotron">

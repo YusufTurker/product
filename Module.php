@@ -75,7 +75,7 @@ class Module extends \kouosl\base\Module
             [
                 'class' => 'yii\rest\UrlRule',
                 'controller' => [
-                    'product/prouct',
+                    'product/product',
                 ],
                 'tokens' => [
                     '{id}' => '<id:\\w+>'

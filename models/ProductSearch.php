@@ -5,11 +5,12 @@ namespace kouosl\product\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use kouosl\product\models\Product;
 
 /**
- * SampleSearch represents the model behind the search form about `app\modules\product\models\Product`.
+ * ProductSearch represents the model behind the search form of `kouosl\product\models\Product`.
  */
-class ProductsSearch extends Products
+class ProductSearch extends Product
 {
     /**
      * @inheritdoc
@@ -17,8 +18,8 @@ class ProductsSearch extends Products
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title', 'description'], 'safe'],
+            [['id', 'count', 'barcodeno', 'price'], 'integer'],
+            [['name', 'trademark'], 'safe'],
         ];
     }
 
@@ -40,7 +41,9 @@ class ProductsSearch extends Products
      */
     public function search($params)
     {
-        $query = Products::find();
+        $query = Product::find();
+
+        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -54,12 +57,16 @@ class ProductsSearch extends Products
             return $dataProvider;
         }
 
+        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'count' => $this->count,
+            'barcodeno' => $this->barcodeno,
+            'price' => $this->price,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'trademark', $this->trademark]);
 
         return $dataProvider;
     }

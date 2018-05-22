@@ -5,24 +5,23 @@ namespace kouosl\product\models;
 use Yii;
 
 /**
- * This is the model class for table "products".
+ * This is the model class for table "product".
  *
- * @property integer $id
- * @property string $title
- * @property string $description
- * @property string $picture
- *
- * @property data[] $data
+ * @property int $id
+ * @property string $name
+ * @property int $count
+ * @property string $trademark
+ * @property int $barcodeno
+ * @property int $price
  */
-class Products extends \yii\db\ActiveRecord
+class Product extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'products';
+        return 'product';
     }
 
     /**
@@ -31,9 +30,9 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description'], 'required'],
-            [['description', 'picture'], 'string'],
-            [['title'], 'string', 'max' => 200],
+            [['name', 'count'], 'required'],
+            [['count', 'barcodeno', 'price'], 'integer'],
+            [['name', 'trademark'], 'string', 'max' => 20],
         ];
     }
 
@@ -44,21 +43,11 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'picture' => 'Picture',
+            'name' => 'Name',
+            'count' => 'Count',
+            'trademark' => 'Trademark',
+            'barcodeno' => 'Barcodeno',
+            'price' => 'Price',
         ];
-    }
-
-    public function getImagePath(){
-        return sprintf("%s/products/%s",Yii::getAlias ( '@data' ),$this->picture);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getData()
-    {
-        return $this->hasMany(ProductData::className(), ['sample_id' => 'id']);
     }
 }

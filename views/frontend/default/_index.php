@@ -1,3 +1,4 @@
+
 <?php
 use kouosl\theme\helpers\Html;
 use kouosl\theme\widgets\Portlet;
@@ -12,6 +13,3 @@ Portlet::begin(['title' => $this->title,'subTitle' => 'samples data','icon' => '
 echo $this->render('index');
 
 Portlet::end();
-
-
-

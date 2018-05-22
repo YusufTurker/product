@@ -1,7 +1,7 @@
 <?php
 
 namespace kouosl\product\controllers\backend;
-
+use kouosl\product\models\product;
 use kouosl\product\models\ProductData;
 use kouosl\product\models\UploadImage;
 use Yii;
@@ -13,6 +13,8 @@ use yii\web\UnauthorizedHttpException;
 use yii\web\Session;
 use yii\web\UploadedFile;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
+use kouosl\product\migrations\m180516_170100_product;
 /**
  * ProductsController implements the CRUD actions for Product model.
  */
@@ -45,10 +47,23 @@ class ProductsController extends DefaultController
     	parent::init();
     
     }
+	public function actionProduct()
+	{
+		$provider=new ActiveDataProvider([
+		'query' =>Product::find(),
+		'pagination' =>[
+		'pageSize' => 5,
+		],
+		]);
+		return $this ->render('product',[
+			'dataProvider'=>$provider,
+	]);
+
+	}
 
     public function actionIndex()
     {
-        return $this->actionManage();
+        return $this->actionProduct();
     }
 
     /**
@@ -203,4 +218,11 @@ class ProductsController extends DefaultController
 
         }
     }
+	//public function actionProduct()
+	//{
+	//	$products=Product::find()->asArray()
+	//					->all();
+	//	var_dump($products);
+	//
+	//}
 }

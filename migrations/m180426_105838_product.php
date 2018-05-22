@@ -3,9 +3,29 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m130524_201442_sample extends Migration
+/**
+ * Class m180426_105838_product
+ */
+class m180426_105838_product extends Migration
 {
-    public function up()
+	public function safeUp()
+    {
+        $this->createTable('product', array(
+            'id' => 'pk',
+			'name' => 'string NOT NULL',
+            'title' => 'string NOT NULL',
+            'trademark' => 'text',
+			'barcodeno' => 'int NOT NULL',
+			'count' => 'int NOT NULL',
+			'price' => 'int NOT NULL',
+        ));
+    }
+ 
+    public function safeDown()
+    {
+        $this->dropTable('product');
+    }
+   /*public function up()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -27,5 +47,5 @@ class m130524_201442_sample extends Migration
     public function down()
     {
         $this->dropTable('product');
-    }
+    }*/
 }
