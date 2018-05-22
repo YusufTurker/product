@@ -1,2 +1,2 @@
-# sample
-Kocaeli university open source lab yii2 sample module
+# product
+Web programlama Product modülüdür.
