@@ -32,5 +32,5 @@ product modülü portal uygulamasına bağlıdır bu yüzden https://github.com/
       
    komutu yazılır ve modülümüz portal dosyasına yüklenir. 
    
-   #Modül amacı
+# Modül amacı
    Kullanıcıların giriş yaptıktan sonra ürün ekleme,silme,düzenleme,arama gibi işlemleri yapması amaçlanmıştır.
