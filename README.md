@@ -28,7 +28,7 @@ product modülü portal uygulamasına bağlıdır bu yüzden https://github.com/
   eklenmelidir.
       Bu adımlardan sonra portal klasöründe komut satırını açarak 
       
-      "composer update" 
+      composer update 
       
    komutu yazılır ve modülümüz portal dosyasına yüklenir. 
    
